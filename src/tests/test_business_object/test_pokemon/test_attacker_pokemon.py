@@ -11,12 +11,17 @@ class TestAttackerPokemon:
             name="Charizard",
             type_pk="Attacker",
         )
+        pikachu = AttackerPokemon(
+            stat_current=Statistic(speed=500), name="Pikachu", type_pk="Attacker"
+        )
 
         # WHEN
-        multiplier = charizard.get_pokemon_attack_coef()
+        charizard_multiplier = charizard.get_pokemon_attack_coef()
+        pikachu_multiplier = pikachu.get_pokemon_attack_coef()
 
         # THEN
-        assert multiplier == 2
+        assert charizard_multiplier == 2
+        assert pikachu_multiplier == 3.5
 
 
 if __name__ == "__main__":
